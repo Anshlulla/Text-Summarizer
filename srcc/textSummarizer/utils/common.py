@@ -1,6 +1,6 @@
 import os
 import yaml
-from src.textSummarizer.logging import logging
+from srcc.textSummarizer.logging import logging
 import json
 import joblib
 from ensure import ensure_annotations
