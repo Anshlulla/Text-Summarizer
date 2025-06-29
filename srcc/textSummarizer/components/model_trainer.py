@@ -2,7 +2,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, Trainer, Training
 import torch
 import os
 from datasets import load_from_disk
-from srcc.textSummarizer.config.configuration import ModelTrainerConfig
+from srcc.textSummarizer.entity import ModelTrainerConfig
 
 class ModelTrainer:
     def __init__(self, config: ModelTrainerConfig):

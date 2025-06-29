@@ -4,7 +4,8 @@ from src.components import data_ingestion
 from srcc.textSummarizer.logging import logger
 from srcc.textSummarizer.pipeline.data_ingestion_pipeline import DataIngestionPipeline
 from srcc.textSummarizer.pipeline.data_transformation_pipeline import DataTransformationPipeline
-from srcc.textSummarizer.pipeline.model_trainer_pipeling import ModelTrainerPipeline
+from srcc.textSummarizer.pipeline.model_trainer_pipeline import ModelTrainerPipeline
+from srcc.textSummarizer.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
 
 STAGE_NAME = "Data Ingestion Stage"
 try:
@@ -31,6 +32,16 @@ try:
     logger.info(f"Starting stage: {STAGE_NAME}")
     model_trainer_pipeline = ModelTrainerPipeline()
     model_trainer_pipeline.initiate_model_training()
+    logger.info(f"{STAGE_NAME} completed")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+STAGE_NAME = "Model Evaluation Stage"
+try:
+    logger.info(f"Starting stage: {STAGE_NAME}")
+    model_evaluation_pipeline = ModelEvaluationPipeline()
+    model_evaluation_pipeline.initiate_model_evaluation()
     logger.info(f"{STAGE_NAME} completed")
 except Exception as e:
     logger.exception(e)
